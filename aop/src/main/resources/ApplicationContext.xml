@@ -6,9 +6,14 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop.xsd">
-
-	<aop:aspectj-autoproxy/>
+	
+	<aop:config>
+		<aop:aspect id="apo" ref="springaop">
+			<aop:pointcut expression="execution(* *(..))" id="beforepointcut"/>
+			<aop:before method="before" pointcut-ref="beforepointcut"/>
+		</aop:aspect>
+	</aop:config>
+	
 	<bean id="red" class="com.spring.aop.color.Red" />
-	<bean id="black" class="com.spring.aop.color.Black" />
-	<bean id="aspectj" class="com.spring.aop.aspectj.AspectJ" />
+	<bean id="springaop" class="com.spring.aop.springaop.SpringAop"/>
 </beans>

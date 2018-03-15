@@ -11,6 +11,6 @@ public class App
     {
         ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
         Red red = context.getBean(Red.class);
-        red.showColor();
+        red.show();
     }
 }
